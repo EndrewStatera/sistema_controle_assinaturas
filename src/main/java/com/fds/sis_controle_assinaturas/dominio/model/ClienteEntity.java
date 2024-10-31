@@ -1,4 +1,4 @@
-package com.fds.sis_controle_assinaturas.model;
+package com.fds.sis_controle_assinaturas.aplicacao.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

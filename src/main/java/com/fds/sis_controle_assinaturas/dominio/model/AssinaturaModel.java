@@ -1,4 +1,4 @@
-package com.fds.sis_controle_assinaturas.model;
+package com.fds.sis_controle_assinaturas.aplicacao.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +20,8 @@ public class AssinaturaModel {
     @Id
     @Column(name = "codigo")
     private Long id;
-    @Column(name = "aplicativo")
+    @OneToMany //OneToMany or ManyToOne?
+    @JoinColumn(name = "codigo")
     private Aplicativo app;
 
 }
