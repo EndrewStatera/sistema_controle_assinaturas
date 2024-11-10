@@ -1,4 +1,4 @@
-package com.fds.sis_controle_assinaturas.aplicacao.model;
+package com.fds.sis_controle_assinaturas.dominio.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
@@ -15,7 +15,7 @@ import jakarta.persistence.OneToMany;
 @Getter
 @Setter
 @Table(name = "tb_assinaturas")
-public class AssinaturaModel {
+public class AssinaturaEntity {
 
     @Id
     @Column(name = "codigo")

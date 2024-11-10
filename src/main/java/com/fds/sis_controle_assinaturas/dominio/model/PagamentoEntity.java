@@ -1,4 +1,4 @@
-package com.fds.sis_controle_assinaturas.aplicacao.model;
+package com.fds.sis_controle_assinaturas.dominio.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,13 +12,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_pagamentos")
-public class Pagamento {
+public class PagamentoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cd_pagamento")
     private Long codigo;
     @Column(name = "pagamento_assinatura")
-    private AssinaturaModel assinatura;
+    private AssinaturaEntity assinatura;
     @Column(name = "valor_pago")
     private Float valorPago;
     @Column(name = "data_pagamento")
