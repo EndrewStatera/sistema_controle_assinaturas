@@ -22,6 +22,7 @@ public class AssinaturaEntity {
     private Long id;
     @OneToMany //OneToMany or ManyToOne?
     @JoinColumn(name = "codigo")
-    private Aplicativo app;
+    private AplicativoEntity app;
+    private boolean active;
 
 }
