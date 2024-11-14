@@ -8,10 +8,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PagamentoEntity {
+public class PagamentoModel {
 
     private Long codigo;
-    private AssinaturaEntity assinatura;
+    private AssinaturaModel assinatura;
     private Float valorPago;
     private LocalDate dataPagamento;
     private String promocao;

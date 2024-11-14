@@ -15,15 +15,15 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class AssinaturaEntity {
+public class AssinaturaModel {
 
     private Long id;
-    private AplicativoEntity app;
-    private ClienteEntity cliente;
+    private AplicativoModel app;
+    private ClienteModel cliente;
     private Date inicioVigencia;
     private  Date fimVIgencia;
 
-    public AssinaturaEntity(Long id, AplicativoEntity app, ClienteEntity cliente){
+    public AssinaturaModel(Long id, AplicativoModel app, ClienteModel cliente){
         this.id = id;
         this.app = app;
         this.cliente = cliente;

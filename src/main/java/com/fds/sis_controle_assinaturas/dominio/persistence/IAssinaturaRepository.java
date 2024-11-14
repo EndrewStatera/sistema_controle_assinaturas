@@ -1,11 +1,11 @@
 package com.fds.sis_controle_assinaturas.dominio.persistence;
 
-import com.fds.sis_controle_assinaturas.dominio.model.AplicativoEntity;
-import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaEntity;
-import com.fds.sis_controle_assinaturas.dominio.model.ClienteEntity;
+import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
+import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
+import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 
 public interface IAssinaturaRepository {
 
-    public AssinaturaEntity salvaAssinatura(ClienteEntity cliente, AplicativoEntity app);
-
+    public AssinaturaModel salvaAssinatura(ClienteModel cliente, AplicativoModel app);
+    
 }
