@@ -13,9 +13,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AplicativoEntity {
+public class AplicativoModel {
     private Long codigo;
     private String nomeAplicativo;
     private Float custoMensal;
-    
 }
