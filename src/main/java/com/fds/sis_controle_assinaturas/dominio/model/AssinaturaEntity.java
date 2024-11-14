@@ -1,5 +1,6 @@
 package com.fds.sis_controle_assinaturas.dominio.model;
 
+import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -10,19 +11,20 @@ import lombok.Setter;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-@Table(name = "tb_assinaturas")
+import java.util.Date;
+
 public class AssinaturaEntity {
 
-    @Id
-    @Column(name = "codigo")
     private Long id;
-    @OneToMany //OneToMany or ManyToOne?
-    @JoinColumn(name = "codigo")
     private AplicativoEntity app;
-    private boolean active;
+    private ClienteEntity cliente;
+    private Date inicioVigencia;
+    private  Date fimVIgencia;
+
+    public AssinaturaEntity(Long id, AplicativoEntity app, ClienteEntity cliente){
+        this.id = id;
+        this.app = app;
+        this.cliente = cliente;
+    }
 
 }

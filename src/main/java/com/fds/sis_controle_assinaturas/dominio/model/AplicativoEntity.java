@@ -14,13 +14,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AplicativoEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo")
     private Long codigo;
-    @Column(name = "nome_app")
     private String nomeAplicativo;
-    @Column(name= "custo_mensal")
     private Float custoMensal;
 
 }
