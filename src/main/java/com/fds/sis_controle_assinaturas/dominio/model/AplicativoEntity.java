@@ -17,5 +17,5 @@ public class AplicativoEntity {
     private Long codigo;
     private String nomeAplicativo;
     private Float custoMensal;
-
+    
 }

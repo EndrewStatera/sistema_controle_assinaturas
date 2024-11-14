@@ -13,6 +13,8 @@ import jakarta.persistence.OneToMany;
 
 import java.util.Date;
 
+@Getter
+@Setter
 public class AssinaturaEntity {
 
     private Long id;

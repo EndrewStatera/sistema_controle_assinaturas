@@ -8,7 +8,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "tb_clientes")
 public class ClienteEntity {
 
     private static final long SERIAL_ID = 1L;
