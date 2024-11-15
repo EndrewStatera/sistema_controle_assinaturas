@@ -1,4 +1,4 @@
-package com.fds.sis_controle_assinaturas.model;
+package com.fds.sis_controle_assinaturas.dominio.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -13,14 +13,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Aplicativo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codigo")
+public class AplicativoModel {
     private Long codigo;
-    @Column(name = "nome_app")
     private String nomeAplicativo;
-    @Column(name= "custo_mensal")
     private Float custoMensal;
-
 }
