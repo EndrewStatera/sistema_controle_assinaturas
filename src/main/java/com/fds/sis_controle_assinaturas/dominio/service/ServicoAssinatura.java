@@ -5,6 +5,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.Date;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.fds.sis_controle_assinaturas.dominio.auxiliares.StatusAssinatura;
@@ -24,12 +25,10 @@ public class ServicoAssinatura {
         List<AssinaturaModel> assinaturas = repository.todas();
         if(status == StatusAssinatura.ATIVA)
             assinaturas = repository.todas().stream().filter(
-                    assinaturaModel ->
-                            assinaturaModel.getFimVigencia().after(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()))).toList();
+                    AssinaturaModel::isActive).toList();
         else if(status == StatusAssinatura.INATIVA)
             assinaturas = repository.todas().stream().filter(
-                    assinaturaModel ->
-                            !assinaturaModel.getFimVigencia().after(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()))).toList();
+                    Predicate.not(AssinaturaModel::isActive)).toList();
         return assinaturas;
     }
 

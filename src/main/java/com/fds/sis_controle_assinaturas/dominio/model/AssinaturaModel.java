@@ -11,6 +11,8 @@ import lombok.Setter;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Getter
@@ -33,6 +35,9 @@ public class AssinaturaModel {
         this.fimVigencia = data;
     }
 
+    public boolean isActive(){
+        return this.fimVigencia.after(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+    }
 
 
 }
