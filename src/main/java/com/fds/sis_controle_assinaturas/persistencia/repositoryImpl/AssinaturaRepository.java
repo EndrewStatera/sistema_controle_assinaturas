@@ -21,11 +21,11 @@ public class AssinaturaRepository implements IAssinaturaRepository {
 
     @Override
     public List<AssinaturaModel> all() {
-        return null;
+        return repository.findAll().stream().map(assinatura -> Assinatura.toAssinaturaModel(assinatura)).toList();
     }
 
     @Override
     public AssinaturaModel getAssinaturaById(Long id) {
-        return null;
+        return Assinatura.toAssinaturaModel(repository.findById(id).orElseThrow());
     }
 }
