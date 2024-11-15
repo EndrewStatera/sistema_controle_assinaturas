@@ -21,12 +21,18 @@ public class AssinaturaModel {
     private AplicativoModel app;
     private ClienteModel cliente;
     private Date inicioVigencia;
-    private  Date fimVIgencia;
+    private  Date fimVigencia;
 
     public AssinaturaModel(Long id, AplicativoModel app, ClienteModel cliente){
         this.id = id;
         this.app = app;
         this.cliente = cliente;
     }
+
+    public void setFimVigencia(Date data){
+        this.fimVigencia = data;
+    }
+
+
 
 }

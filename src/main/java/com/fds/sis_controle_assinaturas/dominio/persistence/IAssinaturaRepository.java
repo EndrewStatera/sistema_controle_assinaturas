@@ -4,8 +4,11 @@ import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
 import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
 import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 
+import java.util.List;
+
 public interface IAssinaturaRepository {
 
     public AssinaturaModel salvaAssinatura(ClienteModel cliente, AplicativoModel app);
+    public List<AssinaturaModel> todas();
     
 }

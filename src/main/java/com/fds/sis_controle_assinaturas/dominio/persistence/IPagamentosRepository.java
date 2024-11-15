@@ -1,5 +1,5 @@
 package com.fds.sis_controle_assinaturas.dominio.persistence;
 
-public class IPagamentosRepository {
+public interface IPagamentosRepository {
     
 }
