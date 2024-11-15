@@ -10,5 +10,6 @@ public interface IAssinaturaRepository {
 
     public AssinaturaModel salvaAssinatura(ClienteModel cliente, AplicativoModel app);
     public List<AssinaturaModel> todas();
+    public  AssinaturaModel getAssinaturaById(Long id);
     
 }

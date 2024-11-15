@@ -33,4 +33,20 @@ public class ServicoAssinatura {
         return assinaturas;
     }
 
+    public List<AssinaturaModel> getAssinaturasByCliente(ClienteModel cliente){
+        List<AssinaturaModel> assinaturas = repository.todas().stream().filter(assinatura -> assinatura.getCliente().getId().equals(cliente.getId())).toList();
+        return assinaturas;
+    }
+
+    public List<AssinaturaModel> getAssinaturasByCliente(AplicativoModel cliente){
+        List<AssinaturaModel> assinaturas = repository.todas().stream().filter(assinatura -> assinatura.getCliente().getId().equals(cliente.getCodigo())).toList();
+        return assinaturas;
+    }
+
+    public boolean getAssinaturaStatus(Long id){
+        return repository.getAssinaturaById(id) != null;
+    }
+
+
+
 }
