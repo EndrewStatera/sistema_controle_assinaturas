@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface IAssinaturaRepository {
 
-    public AssinaturaModel salvaAssinatura(ClienteModel cliente, AplicativoModel app);
+    public AssinaturaModel salvaAssinatura(AssinaturaModel assinaturaModel);
     public List<AssinaturaModel> all();
     public  AssinaturaModel getAssinaturaById(Long id);
     

@@ -1,6 +1,7 @@
 package com.fds.sis_controle_assinaturas.persistencia.Entities;
 
 import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,9 +11,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "apps")
 public class Aplicativo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cd_app")
     private Long codigo;
+    @Column(name = "name")
     private String nomeAplicativo;
+    @Column(name = "price")
     private Float custoMensal;
 
     public static AplicativoModel toAplicativoModel(Aplicativo app){

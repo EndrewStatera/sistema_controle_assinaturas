@@ -31,6 +31,12 @@ public class AssinaturaModel {
         this.cliente = cliente;
     }
 
+    public AssinaturaModel(Long id, AplicativoModel app, ClienteModel cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
+        this.id = id;
+        this.app = app;
+        this.cliente = cliente;
+    }
+
     public void setFimVigencia(LocalDate data){
         this.fimVigencia = data;
     }
@@ -46,6 +52,11 @@ public class AssinaturaModel {
             this.fimVigencia = LocalDate.now().plusDays(30);
         }
         return this.fimVigencia;
+    }
+
+    public void activate(){
+        this.inicioVigencia = LocalDate.now();
+        this.fimVigencia = LocalDate.now().plusDays(30);
     }
 
 
