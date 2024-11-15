@@ -22,8 +22,8 @@ public class AssinaturaModel {
     private Long id;
     private AplicativoModel app;
     private ClienteModel cliente;
-    private Date inicioVigencia;
-    private  Date fimVigencia;
+    private LocalDate inicioVigencia;
+    private  LocalDate fimVigencia;
 
     public AssinaturaModel(Long id, AplicativoModel app, ClienteModel cliente){
         this.id = id;
@@ -31,12 +31,21 @@ public class AssinaturaModel {
         this.cliente = cliente;
     }
 
-    public void setFimVigencia(Date data){
+    public void setFimVigencia(LocalDate data){
         this.fimVigencia = data;
     }
 
     public boolean isActive(){
-        return this.fimVigencia.after(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        return this.fimVigencia.isAfter(LocalDate.now());
+    }
+
+    public LocalDate pagaAssinatura(){
+        if(this.isActive())
+            this.fimVigencia = fimVigencia.plusDays(30);
+        else{
+            this.fimVigencia = LocalDate.now().plusDays(30);
+        }
+        return this.fimVigencia;
     }
 
 

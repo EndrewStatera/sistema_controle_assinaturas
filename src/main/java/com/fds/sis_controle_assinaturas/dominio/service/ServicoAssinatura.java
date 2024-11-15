@@ -1,10 +1,5 @@
 package com.fds.sis_controle_assinaturas.dominio.service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.util.Date;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -13,7 +8,6 @@ import com.fds.sis_controle_assinaturas.dominio.auxiliares.StatusAssinatura;
 import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
 import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
 import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
-import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepository;
 
 /**
@@ -44,15 +38,15 @@ public class ServicoAssinatura {
      * @return a list of `AssinaturaModel` instances matching the specified status
      */
     public List<AssinaturaModel> getAssinaturasByStatus(StatusAssinatura status){
-        List<AssinaturaModel> assinaturas = repository.todas();
+        List<AssinaturaModel> assinaturas = repository.all();
 
         if(status == StatusAssinatura.ATIVA) {
-            assinaturas = repository.todas().stream()
+            assinaturas = repository.all().stream()
                     .filter(AssinaturaModel::isActive)
                     .collect(Collectors.toList());
         }
         else if(status == StatusAssinatura.INATIVA) {
-            assinaturas = repository.todas().stream()
+            assinaturas = repository.all().stream()
                     .filter(Predicate.not(AssinaturaModel::isActive))
                     .collect(Collectors.toList());
         }
@@ -67,7 +61,7 @@ public class ServicoAssinatura {
      * @return a list of `AssinaturaModel` instances associated with the specified client
      */
     public List<AssinaturaModel> getAssinaturasByCliente(ClienteModel cliente){
-        List<AssinaturaModel> assinaturas = repository.todas().stream()
+        List<AssinaturaModel> assinaturas = repository.all().stream()
                 .filter(assinatura -> assinatura.getCliente().getId().equals(cliente.getId()))
                 .collect(Collectors.toList());
         return assinaturas;
@@ -79,8 +73,8 @@ public class ServicoAssinatura {
      * @param cliente the `AplicativoModel` instance representing the application client
      * @return a list of `AssinaturaModel` instances associated with the specified application client
      */
-    public List<AssinaturaModel> getAssinaturasByCliente(AplicativoModel cliente){
-        List<AssinaturaModel> assinaturas = repository.todas().stream()
+    public List<AssinaturaModel> getAssinaturasByAplivativo(AplicativoModel cliente){
+        List<AssinaturaModel> assinaturas = repository.all().stream()
                 .filter(assinatura -> assinatura.getCliente().getId().equals(cliente.getCodigo()))
                 .collect(Collectors.toList());
         return assinaturas;

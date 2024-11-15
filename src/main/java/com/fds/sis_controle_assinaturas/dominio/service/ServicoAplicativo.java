@@ -10,6 +10,11 @@ public class ServicoAplicativo {
     public ServicoAplicativo(IAplicativoRepository apps){
         this.apps = apps;
     }
-
+    public AplicativoModel atualizaCusto(Long id, Float novoCusto){
+        AplicativoModel app = apps.getAplicativoById(id);
+        if(!(novoCusto < 0))
+            app.setCustoMensal(novoCusto);
+        return app;
+    }
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface IAssinaturaRepository {
 
     public AssinaturaModel salvaAssinatura(ClienteModel cliente, AplicativoModel app);
-    public List<AssinaturaModel> todas();
+    public List<AssinaturaModel> all();
     public  AssinaturaModel getAssinaturaById(Long id);
     
 }
