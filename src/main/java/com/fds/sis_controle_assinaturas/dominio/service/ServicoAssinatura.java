@@ -5,9 +5,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import com.fds.sis_controle_assinaturas.dominio.auxiliares.StatusAssinatura;
-import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
-import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
-import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
+import com.fds.sis_controle_assinaturas.dominio.models.AplicativoModel;
+import com.fds.sis_controle_assinaturas.dominio.models.AssinaturaModel;
+import com.fds.sis_controle_assinaturas.dominio.models.ClienteModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepository;
 
 /**

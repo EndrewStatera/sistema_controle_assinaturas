@@ -1,9 +1,9 @@
 package com.fds.sis_controle_assinaturas.aplicacao.casosDeUso;
 
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
-import com.fds.sis_controle_assinaturas.dominio.model.AplicativoEntity;
-import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaEntity;
-import com.fds.sis_controle_assinaturas.dominio.model.ClienteEntity;
+import com.fds.sis_controle_assinaturas.dominio.models.AplicativoEntity;
+import com.fds.sis_controle_assinaturas.dominio.models.AssinaturaEntity;
+import com.fds.sis_controle_assinaturas.dominio.models.ClienteEntity;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAplicativoRepository;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepository;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IClienteRepository;
@@ -18,6 +18,4 @@ public class CriarAssinatura{
         AssinaturaEntity assinatura = new AssinaturaEntity(id, app, cliente);
         return null;
     }
-
-
 }

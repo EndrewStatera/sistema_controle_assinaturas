@@ -1,4 +1,4 @@
-package com.fds.sis_controle_assinaturas.dominio.model;
+package com.fds.sis_controle_assinaturas.dominio.models;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,15 +1,17 @@
 package com.fds.sis_controle_assinaturas.dominio.persistence;
 
-import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
-import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
-import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
-
 import java.util.List;
+
+import com.fds.sis_controle_assinaturas.dominio.models.AplicativoModel;
+import com.fds.sis_controle_assinaturas.dominio.models.AssinaturaModel;
+import com.fds.sis_controle_assinaturas.dominio.models.ClienteModel;
 
 public interface IAssinaturaRepository {
 
     public AssinaturaModel salvaAssinatura(ClienteModel cliente, AplicativoModel app);
     public List<AssinaturaModel> all();
-    public  AssinaturaModel getAssinaturaById(Long id);
+    public AssinaturaModel getAssinaturaById(Long id);
+    public AssinaturaModel saveAssinatura(AssinaturaModel assinatura);
+
     
 }

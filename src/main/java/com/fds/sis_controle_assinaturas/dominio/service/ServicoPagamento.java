@@ -2,8 +2,8 @@ package com.fds.sis_controle_assinaturas.dominio.service;
 
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.PagamentoDTO;
-import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
-import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
+import com.fds.sis_controle_assinaturas.dominio.models.AssinaturaModel;
+import com.fds.sis_controle_assinaturas.dominio.models.PagamentoModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IPagamentosRepository;
 
 import java.time.LocalDate;

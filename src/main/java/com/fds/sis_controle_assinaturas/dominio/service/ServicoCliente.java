@@ -1,6 +1,6 @@
 package com.fds.sis_controle_assinaturas.dominio.service;
 
-import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
+import com.fds.sis_controle_assinaturas.dominio.models.ClienteModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IClienteRepository;
 
 import java.util.List;
