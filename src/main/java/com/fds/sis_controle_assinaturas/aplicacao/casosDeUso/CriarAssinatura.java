@@ -14,8 +14,8 @@ public class CriarAssinatura{
 
     }
 
-    public AssinaturaDTO run(long id, AplicativoEntity app, ClienteEntity cliente){
-        AssinaturaEntity assinatura = new AssinaturaEntity(id, app, cliente);
+    public AssinaturaDTO run(long id, AplicativoModel app, ClienteModel cliente){
+        AssinaturaModel assinatura = new AssinaturaModel(id, app, cliente);
         return null;
     }
 

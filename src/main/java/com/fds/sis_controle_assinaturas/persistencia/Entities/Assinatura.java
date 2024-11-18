@@ -3,6 +3,8 @@ package com.fds.sis_controle_assinaturas.persistencia.Entities;
 import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
 import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
 import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
+
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +12,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@Table(name = "assinaturas")
 public class Assinatura {
     private Long id;
     private AplicativoModel app;
