@@ -21,7 +21,7 @@ public class AssinaturaRepository implements IAssinaturaRepository {
 
     @Override
     public List<AssinaturaModel> all() {
-        return repository.findAll().stream().map(assinatura -> Assinatura.toAssinaturaModel(assinatura)).toList();
+        return repository.findAll().stream().map(Assinatura::toAssinaturaModel).toList();
     }
 
     @Override
