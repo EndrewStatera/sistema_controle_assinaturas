@@ -2,6 +2,7 @@ package com.fds.sis_controle_assinaturas.persistencia.Entities;
 
 import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,15 +13,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
 @Table(name = "clientes")
 public class Cliente {
     private static final long SERIAL_ID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "user")
+    @Column(name = "user", nullable = false)
     private String user;
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
     
     public Cliente(Long id, String user, String email){

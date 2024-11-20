@@ -24,11 +24,4 @@ public class PagamentoModel {
         this.dataPagamento = dataPagamento;
         this.promocao = promocao;
     }
-
-    public PagamentoModel(Long codigo, AssinaturaModel assinatura, Float valorPago, LocalDate dataPagamento, String promocao){
-        this.assinatura = assinatura;
-        this.valorPago = valorPago;
-        this.dataPagamento = dataPagamento;
-        this.promocao = promocao;
-    }
 }

@@ -4,6 +4,9 @@ import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IPagamentosRepository;
 import com.fds.sis_controle_assinaturas.persistencia.Entities.Pagamento;
 import com.fds.sis_controle_assinaturas.persistencia.IntJPARepositories.IPagamentoJPA;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class PagamentoRepository implements IPagamentosRepository {
@@ -12,5 +15,13 @@ public class PagamentoRepository implements IPagamentosRepository {
     @Override
     public PagamentoModel addPagamento(PagamentoModel pagamento) {
         return Pagamento.toPagamentoModel(repository.save(Pagamento.fromPagamentoModel(pagamento)));
+    }
+    @Override
+    public void removePagamento(Pagamento pagamento) {
+        repository.delete(pagamento);
+    }
+    @Override
+    public Optional<Pagamento> findById(Long id) {
+        return repository.findById(id);
     }
 }

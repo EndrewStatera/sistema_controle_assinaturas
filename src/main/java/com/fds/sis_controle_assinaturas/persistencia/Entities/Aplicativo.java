@@ -11,15 +11,16 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 @Table(name = "apps")
 public class Aplicativo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cd_app")
     private Long codigo;
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String nomeAplicativo;
-    @Column(name = "price")
+    @Column(name = "price", nullable = false)
     private Float custoMensal;
 
     public static AplicativoModel toAplicativoModel(Aplicativo app){

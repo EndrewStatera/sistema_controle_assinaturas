@@ -1,12 +1,13 @@
 package com.fds.sis_controle_assinaturas.dominio.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAplicativoRepository;
 
-import java.util.List;
-
 public class ServicoAplicativo {
     IAplicativoRepository apps;
+    @Autowired
     public ServicoAplicativo(IAplicativoRepository apps){
         this.apps = apps;
     }

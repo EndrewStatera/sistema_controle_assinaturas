@@ -32,7 +32,6 @@ public class AssinaturaModel {
     }
 
     public AssinaturaModel(AplicativoModel app, ClienteModel cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
-        this.id = id;
         this.app = app;
         this.cliente = cliente;
     }
