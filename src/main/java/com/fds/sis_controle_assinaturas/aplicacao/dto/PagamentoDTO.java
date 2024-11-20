@@ -1,4 +1,4 @@
-package com.fds.sis_controle_assinaturas.api.dto;
+package com.fds.sis_controle_assinaturas.aplicacao.dto;
 
 import java.time.LocalDate;
 
@@ -19,13 +19,7 @@ public class PagamentoDTO {
     private String promocao;
 
     // Constructors
-    public PagamentoDTO(Long codigo, Long assinaturaCodigo, Float valorPago, LocalDate dataPagamento, String promocao) {
-        this.codigo = codigo;
-        this.assinaturaCodigo = assinaturaCodigo;
-        this.valorPago = valorPago;
-        this.dataPagamento = dataPagamento;
-        this.promocao = promocao;
-    }
+
 
     public PagamentoDTO(Long assinaturaCodigo, Float valorPago, LocalDate dataPagamento, String promocao) {
         this.assinaturaCodigo = assinaturaCodigo;

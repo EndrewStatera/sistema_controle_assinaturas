@@ -16,11 +16,11 @@ import java.time.LocalDate;
 public class AssinaturaDTO{
     private Long id;
     private AplicativoModel app;
-    private ClienteModel cliente;
+    private ClienteDTO cliente;
     private LocalDate inicioVigencia;
     private  LocalDate fimVigencia;
 
-    public AssinaturaDTO(AplicativoModel app, ClienteModel cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
+    public AssinaturaDTO(AplicativoModel app, ClienteDTO cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
         this.app = app;
         this.cliente = cliente;
         this.inicioVigencia = inicioVigencia;

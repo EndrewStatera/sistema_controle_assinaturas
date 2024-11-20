@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AplicativoDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
+import com.fds.sis_controle_assinaturas.aplicacao.dto.;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.ClienteDTO;
-import com.fds.sis_controle_assinaturas.aplicacao.dto.PagamentoDTO;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
