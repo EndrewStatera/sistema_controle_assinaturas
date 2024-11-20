@@ -14,8 +14,8 @@ public class CriarAssinatura{
 
     }
 
-    public AssinaturaDTO run(long id, AplicativoModel app, ClienteModel cliente){
-        AssinaturaModel assinatura = new AssinaturaModel(id, app, cliente);
+    public AssinaturaDTO run(AssinaturaDTO assinatura){
+        AssinaturaModel assinatura = new AssinaturaModel(assinatura.getApp());
         return null;
     }
 

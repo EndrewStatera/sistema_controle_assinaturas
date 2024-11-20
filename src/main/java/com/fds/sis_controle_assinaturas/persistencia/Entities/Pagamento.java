@@ -3,6 +3,7 @@ package com.fds.sis_controle_assinaturas.persistencia.Entities;
 
 import java.time.LocalDate;
 
+import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,5 +24,20 @@ public class Pagamento {
         this.valorPago = valorPago;
         this.dataPagamento = dataPagamento;
         this.promocao = promocao;
+    }
+
+    public static Pagamento fromPagamentoModel(PagamentoModel pagamento){
+        return new Pagamento(Assinatura.fromAssinaturaModel(pagamento.getAssinatura()),
+                                pagamento.getValorPago(),
+                                pagamento.getDataPagamento(),
+                                pagamento.getPromocao());
+    }
+
+    public static PagamentoModel toPagamentoModel(Pagamento pagamento){
+        return new PagamentoModel(pagamento.getCodigo(),
+                                    Assinatura.toAssinaturaModel(pagamento.getAssinatura()),
+                                    pagamento.getValorPago(),
+                                    pagamento.getDataPagamento(),
+                                    pagamento.getPromocao());
     }
 }
