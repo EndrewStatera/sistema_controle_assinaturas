@@ -1,5 +1,6 @@
 package com.fds.sis_controle_assinaturas.persistencia.Entities;
 
+import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,5 +32,9 @@ public class Cliente {
     public Cliente(String user, String email){
         this.user = user;
         this.email = email;
+    }
+
+    public static ClienteModel toClienteModel(Cliente cliente){
+        return new ClienteModel(cliente.getId(), cliente.getUser(), cliente.email );
     }
 }

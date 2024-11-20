@@ -31,6 +31,12 @@ public class AssinaturaModel {
         this.cliente = cliente;
     }
 
+    public AssinaturaModel(AplicativoModel app, ClienteModel cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
+        this.id = id;
+        this.app = app;
+        this.cliente = cliente;
+    }
+
     public AssinaturaModel(Long id, AplicativoModel app, ClienteModel cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
         this.id = id;
         this.app = app;
