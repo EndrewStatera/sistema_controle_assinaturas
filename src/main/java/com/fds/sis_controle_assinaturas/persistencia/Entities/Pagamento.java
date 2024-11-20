@@ -1,7 +1,9 @@
 package com.fds.sis_controle_assinaturas.persistencia.Entities;
 
-
 import java.time.LocalDate;
+
+import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
+import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
