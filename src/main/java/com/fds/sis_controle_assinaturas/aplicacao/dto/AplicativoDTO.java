@@ -1,5 +1,7 @@
 package com.fds.sis_controle_assinaturas.aplicacao.dto;
 
+import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,5 +17,9 @@ public class AplicativoDTO{
     public AplicativoDTO(String nomeAplicativo, Float custoMensal){
         this.nomeAplicativo = nomeAplicativo;
         this.custoMensal = custoMensal;
+    }
+
+    public static AplicativoDTO fromAppModel(AplicativoModel appModel){
+        return new AplicativoDTO(appModel.getNomeAplicativo(), appModel.getCustoMensal());
     }
 }

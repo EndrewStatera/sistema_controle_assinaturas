@@ -31,11 +31,15 @@ public class PagamentoDTO {
 
 
     // Overloaded constructor to create a DTO from a PagamentoModel
-    public PagamentoDTO(PagamentoModel model) {
+    /*public PagamentoDTO(PagamentoModel model) {
         this.codigo = model.getCodigo();
         this.assinaturaCodigo = model.getAssinatura() != null ? model.getAssinatura().getId() : null; // Assuming AssinaturaModel has a `getCodigo()` method
         this.valorPago = model.getValorPago();
         this.dataPagamento = model.getDataPagamento();
         this.promocao = model.getPromocao();
+    }*/
+
+    public static PagamentoDTO fromPagaModel(PagamentoModel pagaModel) {
+        return new PagamentoDTO(pagaModel.getCodigo(), pagaModel.getValorPago(), pagaModel.getDataPagamento(), pagaModel.getPromocao());
     }
 }

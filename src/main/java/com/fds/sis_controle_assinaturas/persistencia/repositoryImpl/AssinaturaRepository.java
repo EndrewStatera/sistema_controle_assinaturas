@@ -9,7 +9,10 @@ import com.fds.sis_controle_assinaturas.persistencia.IntJPARepositories.IAssinat
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class AssinaturaRepository implements IAssinaturaRepository {
+    @Autowired
     IAssinaturaJPA repository;
 
     @Override
