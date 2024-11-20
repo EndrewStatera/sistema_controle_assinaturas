@@ -26,4 +26,8 @@ public class AssinaturaDTO{
         this.inicioVigencia = inicioVigencia;
         this.fimVigencia = fimVigencia;
     }
+
+    public AssinaturaDTO(Long cliente, Long app){
+
+    }
 }
