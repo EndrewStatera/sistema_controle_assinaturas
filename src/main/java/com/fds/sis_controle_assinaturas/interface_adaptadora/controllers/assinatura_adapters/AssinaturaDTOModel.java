@@ -5,6 +5,6 @@ import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
 
 public class AssinaturaDTOModel {
     public static AssinaturaModel toAssinaturaModel(AssinaturaDTO assinaturaDTO){
-        return new AssinaturaModel(assinaturaDTO.getApp())
+        return new AssinaturaModel(assinaturaDTO.getApp());
     }
 }
