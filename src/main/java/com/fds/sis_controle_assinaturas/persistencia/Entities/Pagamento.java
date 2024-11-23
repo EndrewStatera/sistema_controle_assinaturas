@@ -12,12 +12,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
 public class Pagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cd_pagamento")
     private Long codigo;
-    @Column(name = "id_assinatura")
+    //@Column(name = "id_assinatura")
     @OneToOne
     private Assinatura assinatura;
     @Column(name = "valor_pago")

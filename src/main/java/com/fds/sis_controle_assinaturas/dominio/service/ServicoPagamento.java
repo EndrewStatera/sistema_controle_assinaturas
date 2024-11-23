@@ -5,10 +5,12 @@ import com.fds.sis_controle_assinaturas.aplicacao.dto.PagamentoDTO;
 import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
 import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IPagamentosRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Service
 public class ServicoPagamento {
     IPagamentosRepository pagamentos;
     public ServicoPagamento(IPagamentosRepository pagamentos){

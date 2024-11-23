@@ -3,6 +3,9 @@ package com.fds.sis_controle_assinaturas.aplicacao.casosDeUso;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AplicativoDTO;
 import com.fds.sis_controle_assinaturas.dominio.service.ServicoAplicativo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 
 public class AtualizaPrecoApp {
     ServicoAplicativo service;

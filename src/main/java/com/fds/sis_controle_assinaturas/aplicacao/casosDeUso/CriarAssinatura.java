@@ -9,8 +9,11 @@ import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepositor
 import com.fds.sis_controle_assinaturas.dominio.persistence.IClienteRepository;
 import com.fds.sis_controle_assinaturas.dominio.service.ServicoAssinatura;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+
+@Component
 
 public class CriarAssinatura{
     private IAssinaturaRepository assinaturaRepository;

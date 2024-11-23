@@ -11,12 +11,14 @@ import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
 import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepository;
 import com.fds.sis_controle_assinaturas.interface_adaptadora.controllers.assinatura_adapters.AssinaturaDTOModel;
+import org.springframework.stereotype.Service;
 
 /**
  * Service class for managing subscriptions (`AssinaturaModel`).
  * Provides methods to retrieve subscriptions based on various criteria
  * such as status and client.
  */
+@Service
 public class ServicoAssinatura {
 
     /**

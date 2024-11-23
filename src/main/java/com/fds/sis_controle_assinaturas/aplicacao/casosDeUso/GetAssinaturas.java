@@ -5,8 +5,10 @@ import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
 import com.fds.sis_controle_assinaturas.dominio.service.ServicoAplicativo;
 import com.fds.sis_controle_assinaturas.dominio.service.ServicoAssinatura;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
+@Component
 
 public class GetAssinaturas {
     ServicoAssinatura servicoAssinatura;

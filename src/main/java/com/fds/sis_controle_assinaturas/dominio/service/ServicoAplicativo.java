@@ -2,9 +2,11 @@ package com.fds.sis_controle_assinaturas.dominio.service;
 
 import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAplicativoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ServicoAplicativo {
     IAplicativoRepository apps;
     public ServicoAplicativo(IAplicativoRepository apps){

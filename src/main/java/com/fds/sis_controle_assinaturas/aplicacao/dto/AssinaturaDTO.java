@@ -30,7 +30,7 @@ public class AssinaturaDTO{
     public static AssinaturaDTO fromAssinaturaModel(AssinaturaModel assinaturaModel){
         return new AssinaturaDTO(assinaturaModel.getId(),
                                     AplicativoDTO.fromAppModel(assinaturaModel.getApp()),
-                                    ClienteDTO.fromClieModel(assinaturaModel.getCliente()),
+                                    ClienteDTO.fromClienteModel(assinaturaModel.getCliente()),
                                     assinaturaModel.getInicioVigencia(),
                                     assinaturaModel.getFimVigencia());
     }

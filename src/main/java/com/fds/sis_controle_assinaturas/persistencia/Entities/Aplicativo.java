@@ -12,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "apps")
+@Entity
 public class Aplicativo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +27,7 @@ public class Aplicativo {
         return new AplicativoModel(app.codigo, app.nomeAplicativo, app.custoMensal);
     }
 
-    public static Aplicativo fromAplicativoModel(Aplicativo app){
-        return new Aplicativo(app.codigo, app.nomeAplicativo, app.custoMensal);
+    public static Aplicativo fromAplicativoModel(AplicativoModel app){
+        return new Aplicativo(app.getCodigo(), app.getNomeAplicativo(), app.getCustoMensal());
     }
 }

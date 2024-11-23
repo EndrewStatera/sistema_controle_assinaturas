@@ -5,9 +5,11 @@ import com.fds.sis_controle_assinaturas.dominio.auxiliares.StatusAssinatura;
 import com.fds.sis_controle_assinaturas.dominio.service.ServicoAssinatura;
 import com.fds.sis_controle_assinaturas.persistencia.Entities.Assinatura;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
+@Component
 
 public class GetAssinaturaByStatus {
     ServicoAssinatura service;

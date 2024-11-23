@@ -2,39 +2,58 @@ package com.fds.sis_controle_assinaturas.interface_adaptadora.controllers;
 
 import java.util.List;
 
+import com.fds.sis_controle_assinaturas.aplicacao.casosDeUso.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AplicativoDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.PagamentoDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.ClienteDTO;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-
-
-@Controller
 @EnableAutoConfiguration
+@RestController
 public class ControllerSis {
-    
+    AtualizaPrecoApp atualizaPrecoApp;
+    CriarAssinatura criarAssinatura;
+    GetAplicativos getAplicativos;
+    GetAssinaturaByStatus getAssinaturaByStatus;
+    GetAssinaturas getAssinaturas;
+    GetClientes getClientes;
+
+    @Autowired
+    public ControllerSis(AtualizaPrecoApp atualizaPrecoApp,
+                         CriarAssinatura criarAssinatura,
+                         GetAplicativos getAplicativos,
+                         GetAssinaturaByStatus getAssinaturaByStatus,
+                         GetAssinaturas getAssinaturas,
+                         GetClientes getClientes) {
+        this.atualizaPrecoApp = atualizaPrecoApp;
+        this.criarAssinatura = criarAssinatura;
+        this.getAplicativos = getAplicativos;
+        this.getAssinaturaByStatus = getAssinaturaByStatus;
+        this.getAssinaturas = getAssinaturas;
+        this.getClientes = getClientes;
+    }
+
     @GetMapping("/servcad/clientes")
     public List<ClienteDTO> getClientesCadastrados() {
-        return null;
+        return getClientes.run();
     }
 
     @GetMapping("/servcad/aplicativos")
     public List<AplicativoDTO> getAplicativosCadastrados() {
-        return null;
+
+        return getAplicativos.run();
     }
 
     @PostMapping("/servcad/assinaturas")
     public List<AssinaturaDTO> getAssinaturas(@RequestBody AssinaturaDTO entity) {
         //TODO: process POST request
         
-        return null;
+        return getAssinaturas.run();
     }
     
     @PostMapping("/servcad/aplicativos/atualizacusto/:idAplicativo")

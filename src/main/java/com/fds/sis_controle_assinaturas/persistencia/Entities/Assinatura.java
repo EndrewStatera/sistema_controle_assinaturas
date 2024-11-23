@@ -14,17 +14,18 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Table(name = "assinaturas")
+@Entity
 public class Assinatura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_assinatura")
     private Long id;
-    @Column(name = "id_app")
+    //@Column(name = "id_app")
     @OneToOne
-    private AplicativoModel app;
-    @Column(name = "id_cliente")
+    private Aplicativo app;
+    //@Column(name = "id_cliente")
     @OneToOne
-    private ClienteModel cliente;
+    private Cliente cliente;
     @Column(name = "inicio_vigencia")
     @DateTimeFormat
     private LocalDate inicioVigencia;
@@ -32,7 +33,7 @@ public class Assinatura {
     @DateTimeFormat
     private  LocalDate fimVigencia;
 
-    public Assinatura(Long id, AplicativoModel app, ClienteModel cliente){
+    public Assinatura(Long id, Aplicativo app, Cliente cliente){
         this.id = id;
         this.app = app;
         this.cliente = cliente;
@@ -57,10 +58,10 @@ public class Assinatura {
     }
 
     public static AssinaturaModel toAssinaturaModel(Assinatura assinatura){
-        return new AssinaturaModel(assinatura.getId(), assinatura.getApp(), assinatura.getCliente());
+        return new AssinaturaModel(assinatura.getId(), Aplicativo.toAplicativoModel(assinatura.getApp()), Cliente.toClienteModel(assinatura.getCliente()));
     }
 
     public static Assinatura fromAssinaturaModel(AssinaturaModel assinatura){
-        return new Assinatura(assinatura.getId(), assinatura.getApp(), assinatura.getCliente());
+        return new Assinatura(assinatura.getId(), Aplicativo.fromAplicativoModel(assinatura.getApp()), Cliente.fromClienteModel(assinatura.getCliente()));
     }
 }
