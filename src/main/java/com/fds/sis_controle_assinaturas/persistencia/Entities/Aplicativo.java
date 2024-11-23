@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "apps")
+@Table(name = "APPS")
 @Entity
 public class Aplicativo {
     @Id

@@ -12,6 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @AllArgsConstructor
 @Getter
 @Setter
+@Table(name = "PAGAMENTOS")
 @Entity
 public class Pagamento {
     @Id

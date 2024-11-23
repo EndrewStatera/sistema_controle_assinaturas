@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Table(name = "clientes")
+@Table(name = "CLIENTES")
 @Entity
 public class Cliente {
     private static final long SERIAL_ID = 1L;
