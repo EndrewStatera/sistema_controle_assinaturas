@@ -6,6 +6,7 @@ import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "ASSINATURAS")
 @Entity
 public class Assinatura {

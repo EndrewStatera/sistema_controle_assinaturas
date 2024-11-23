@@ -4,10 +4,12 @@ import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "CLIENTES")
 @Entity
 public class Cliente {
