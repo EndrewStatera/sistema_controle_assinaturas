@@ -9,4 +9,6 @@ import java.util.List;
 public interface IAplicativoRepository {
     public AplicativoModel getAplicativoById(Long id);
     public List<AplicativoModel> all();
+
+    public AplicativoModel updateAppPrice(Long id, Float novoPreco);
 }

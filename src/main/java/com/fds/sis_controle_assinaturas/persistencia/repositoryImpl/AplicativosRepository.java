@@ -30,4 +30,12 @@ public class AplicativosRepository implements IAplicativoRepository {
         List<Aplicativo> app =  apps.findAll();
         return app.stream().map(Aplicativo::toAplicativoModel).toList();
     }
+
+    @Override
+    public AplicativoModel updateAppPrice(Long id, Float novoPreco) {
+        Aplicativo app = apps.findById(id).orElseThrow();
+        app.setCustoMensal(novoPreco);
+        apps.save(app);
+        return Aplicativo.toAplicativoModel(app);
+    }
 }

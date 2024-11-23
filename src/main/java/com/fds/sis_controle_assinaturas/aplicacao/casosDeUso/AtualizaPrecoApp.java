@@ -1,6 +1,7 @@
 package com.fds.sis_controle_assinaturas.aplicacao.casosDeUso;
 
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AplicativoDTO;
+import com.fds.sis_controle_assinaturas.aplicacao.dto.useCasesDTO.AtualizaPrecoDTO;
 import com.fds.sis_controle_assinaturas.dominio.service.ServicoAplicativo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class AtualizaPrecoApp {
         this.service = service;
     }
 
-    public AplicativoDTO run(Long id, float novoPreco){
-        return AplicativoDTO.fromAppModel(this.service.atualizaCusto(id, novoPreco));
+    public AplicativoDTO run(AtualizaPrecoDTO dto){
+        return AplicativoDTO.fromAppModel(this.service.atualizaCusto(dto.getId(), dto.getNovoPreco()));
     }
 }

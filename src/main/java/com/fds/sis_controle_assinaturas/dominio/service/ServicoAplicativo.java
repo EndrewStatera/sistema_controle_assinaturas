@@ -23,4 +23,9 @@ public class ServicoAplicativo {
         return apps.all();
     }
 
+    public AplicativoModel getAppById(Long id){
+        AplicativoModel app = apps.getAplicativoById(id);
+        return app;
+    }
+
 }

@@ -20,11 +20,11 @@ public class ServicoPagamento {
     /*
         Ainda falta implementar a funcionalidade de estornar o dinheiro. Como seria?
     */
-    public LocalDate efetivaPagamento(AssinaturaModel assinatura, Float valor){
+    public LocalDate efetivaPagamento(AssinaturaDTO assinatura, Float valor){
         if(!Objects.equals(valor, assinatura.getApp().getCustoMensal()))
             return assinatura.getFimVigencia();
         else{
-            PagamentoModel pagamento = new PagamentoModel(assinatura, valor, LocalDate.now(), null);
+            PagamentoDTO pagamento = new PagamentoDTO(assinatura.getId(), valor, LocalDate.now(), null);
             pagamentos.addPagamento(pagamento);
         }
         return assinatura.getFimVigencia();
