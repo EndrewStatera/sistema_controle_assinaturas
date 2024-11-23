@@ -25,7 +25,7 @@ public class ServicoPagamento {
             return assinatura.getFimVigencia();
         else{
             PagamentoDTO pagamento = new PagamentoDTO(assinatura.getId(), valor, LocalDate.now(), null);
-            pagamentos.addPagamento(pagamento);
+            //pagamentos.addPagamento(pagamento);
         }
         return assinatura.getFimVigencia();
     }

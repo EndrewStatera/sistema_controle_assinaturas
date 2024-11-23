@@ -16,6 +16,7 @@ public class RegistraPagamento {
     }
 
     public PagamentoDTO run(AssinaturaDTO assinaturaDTO, Float valorPago){
-        servicoPagamento.efetivaPagamento(pagamento);
+        //servicoPagamento.efetivaPagamento(pagamento);
+        return null;
     }
 }
