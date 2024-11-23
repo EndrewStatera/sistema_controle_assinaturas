@@ -15,12 +15,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class AssinaturaDTO{
     private Long id;
-    private AplicativoModel app;
+    private AplicativoDTO app;
     private ClienteDTO cliente;
     private LocalDate inicioVigencia;
     private  LocalDate fimVigencia;
 
-    public AssinaturaDTO(AplicativoModel app, ClienteDTO cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
+    public AssinaturaDTO(AplicativoDTO app, ClienteDTO cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
         this.app = app;
         this.cliente = cliente;
         this.inicioVigencia = inicioVigencia;
