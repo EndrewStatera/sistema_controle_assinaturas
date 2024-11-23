@@ -3,19 +3,29 @@ package com.fds.sis_controle_assinaturas.persistencia.Entities;
 import java.time.LocalDate;
 
 import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @AllArgsConstructor
 @Getter
 @Setter
 public class Pagamento {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cd_pagamento")
     private Long codigo;
+    @Column(name = "id_assinatura")
+    @OneToOne
     private Assinatura assinatura;
+    @Column(name = "valor_pago")
     private Float valorPago;
+    @Column(name = "data_pagamento")
+    @DateTimeFormat
     private LocalDate dataPagamento;
+    @Column(name = "promocao")
     private String promocao;
 
     public Pagamento(Assinatura assinatura, Float valorPago, LocalDate dataPagamento, String promocao){

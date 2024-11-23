@@ -17,4 +17,8 @@ public class ServicoAplicativo {
         return app;
     }
 
+    public List<AplicativoModel> all(){
+        return apps.all();
+    }
+
 }

@@ -17,6 +17,7 @@ public class Cliente {
     private static final long SERIAL_ID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente")
     private Long id;
     @Column(name = "user")
     private String user;

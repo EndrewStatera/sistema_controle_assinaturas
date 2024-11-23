@@ -18,7 +18,7 @@ public class ClienteDTO {
         this.email = email;
     }
 
-    public static ClienteDTO fromClieModel(ClienteModel cliModel) {
+    public static ClienteDTO fromClienteModel(ClienteModel cliModel) {
         return new ClienteDTO(cliModel.getUser(), cliModel.getEmail());
     }
 }

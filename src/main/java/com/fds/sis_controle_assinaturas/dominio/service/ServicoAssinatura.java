@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
 import com.fds.sis_controle_assinaturas.dominio.auxiliares.StatusAssinatura;
 import com.fds.sis_controle_assinaturas.dominio.model.AplicativoModel;
 import com.fds.sis_controle_assinaturas.dominio.model.AssinaturaModel;
 import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepository;
+import com.fds.sis_controle_assinaturas.interface_adaptadora.controllers.assinatura_adapters.AssinaturaDTOModel;
 
 /**
  * Service class for managing subscriptions (`AssinaturaModel`).
@@ -90,4 +92,12 @@ public class ServicoAssinatura {
         return repository.getAssinaturaById(id) != null;
     }
 
+    public AssinaturaModel criaAssinatura(AssinaturaDTO assinaturaDTO){
+        AssinaturaModel model = AssinaturaDTOModel.toAssinaturaModel(assinaturaDTO);
+        return repository.salvaAssinatura(model);
+    }
+
+    public List<AssinaturaModel> getAll(){
+        return repository.all();
+    }
 }

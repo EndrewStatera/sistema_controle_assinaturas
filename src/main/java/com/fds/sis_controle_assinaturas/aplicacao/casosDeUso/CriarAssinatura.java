@@ -7,16 +7,36 @@ import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAplicativoRepository;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepository;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IClienteRepository;
+import com.fds.sis_controle_assinaturas.dominio.service.ServicoAssinatura;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.time.LocalDate;
+
 public class CriarAssinatura{
     private IAssinaturaRepository assinaturaRepository;
-    public CriarAssinatura(IAssinaturaRepository assinaturaRepository){
-        this.assinaturaRepository = assinaturaRepository;
+    private IAplicativoRepository aplicativosRepository;
+    private IClienteRepository clienteRepository;
+    private ServicoAssinatura servicoAssinatura;
 
+    @Autowired
+    public CriarAssinatura(ServicoAssinatura servicoAssinatura,
+                           IAssinaturaRepository assinaturaRepository,
+                           IClienteRepository clienteRepository,
+                           IAplicativoRepository app){
+        this.assinaturaRepository = assinaturaRepository;
+        this.clienteRepository = clienteRepository;
+        this.aplicativosRepository = app;
+        this.servicoAssinatura = servicoAssinatura;
     }
 
     public AssinaturaDTO run(AssinaturaDTO assinatura){
-        AssinaturaModel assinatura = new AssinaturaModel(assinatura.getApp());
-        return null;
+        AssinaturaModel assinaturaModel = new AssinaturaModel(
+                aplicativosRepository.getAplicativoById(assinatura.getApp().getCodigo()),
+                clienteRepository.getClienteById(assinatura.getCliente().getId()),
+                LocalDate.now(),
+                LocalDate.now().plusDays(30));
+
+        return AssinaturaDTO.fromAssinaturaModel(servicoAssinatura.criaAssinatura(assinatura));
     }
 
 

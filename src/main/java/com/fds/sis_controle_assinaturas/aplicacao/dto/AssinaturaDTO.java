@@ -27,7 +27,11 @@ public class AssinaturaDTO{
         this.fimVigencia = fimVigencia;
     }
 
-    public AssinaturaDTO(Long cliente, Long app){
-
+    public static AssinaturaDTO fromAssinaturaModel(AssinaturaModel assinaturaModel){
+        return new AssinaturaDTO(assinaturaModel.getId(),
+                                    AplicativoDTO.fromAppModel(assinaturaModel.getApp()),
+                                    ClienteDTO.fromClieModel(assinaturaModel.getCliente()),
+                                    assinaturaModel.getInicioVigencia(),
+                                    assinaturaModel.getFimVigencia());
     }
 }
