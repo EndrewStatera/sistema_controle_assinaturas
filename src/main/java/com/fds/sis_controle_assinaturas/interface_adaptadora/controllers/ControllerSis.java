@@ -49,8 +49,8 @@ public class ControllerSis {
         return getAplicativos.run();
     }
 
-    @PostMapping("/servcad/assinaturas")
-    public List<AssinaturaDTO> getAssinaturas(@RequestBody AssinaturaDTO entity) {
+    @GetMapping("/servcad/assinaturas")
+    public List<AssinaturaDTO> getAssinaturas() {
         //TODO: process POST request
         
         return getAssinaturas.run();
