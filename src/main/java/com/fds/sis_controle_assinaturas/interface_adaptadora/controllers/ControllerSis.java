@@ -14,7 +14,6 @@ import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.PagamentoDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.ClienteDTO;
 
-
 @EnableAutoConfiguration
 @RestController
 public class ControllerSis {
@@ -26,6 +25,8 @@ public class ControllerSis {
     GetClientes getClientes;
     GetClienteById getClienteById;
     GetAppById getAppById;
+    CheckAssinaturaByStts checkStatus;
+
 
     @Autowired
     public ControllerSis(AtualizaPrecoApp atualizaPrecoApp,
@@ -53,7 +54,7 @@ public class ControllerSis {
 
     @GetMapping("/servcad/aplicativos")
     public List<AplicativoDTO> getAplicativosCadastrados() {
-
+        
         return getAplicativos.run();
     }
 
@@ -72,7 +73,7 @@ public class ControllerSis {
     }
     
     @GetMapping("/servcad/assinaturas/{tipo}")
-    public List<AssinaturaDTO> getAssinaturaByType(@PathVariable("Tipo") Integer param) {
+    public List<AssinaturaDTO> getAssinaturaByType(@PathVariable("tipo") Integer param) {
         return switch (param) {
             case 1 -> getAssinaturaByStatus.run(StatusAssinatura.ATIVA);
             case 2 -> getAssinaturaByStatus.run(StatusAssinatura.INATIVA);
@@ -98,11 +99,10 @@ public class ControllerSis {
         return null;
     }
 
-    @GetMapping("/assinvalida/:codass")
-    public Boolean checkAssinaturaStatus(@RequestParam String param) {
-        return null;
+    @GetMapping("/assinvalida/{codass}")
+    public Boolean checkAssinaturaStatus(@RequestParam Long codAssinatura) { //não consigo testar, amigo Endrew!!! Tenta aí por favor <33
+        return checkStatus.run(codAssinatura);
     }
-    
     
     
 }
