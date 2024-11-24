@@ -99,16 +99,10 @@ public class ControllerSis {
         return null;
     }
 
-<<<<<<< HEAD
-    @GetMapping("/assinvalida/codass")
-    public Boolean checkAssinaturaStatus(@RequestParam String param) {
-        return null;
-=======
+
     @GetMapping("/assinvalida/{codass}")
     public Boolean checkAssinaturaStatus(@RequestParam Long codAssinatura) { //não consigo testar, amigo Endrew!!! Tenta aí por favor <33
         return checkStatus.run(codAssinatura);
->>>>>>> cd5da5240f9fc3de4839480beb3ac8109485b449
     }
-    
     
 }
