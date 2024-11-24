@@ -36,7 +36,8 @@ public class ControllerSis {
                          GetAssinaturas getAssinaturas,
                          GetClientes getClientes,
                          GetClienteById getClienteById,
-                         GetAppById getAppById) {
+                         GetAppById getAppById,
+                         CheckAssinaturaByStts checkStatus) {
         this.atualizaPrecoApp = atualizaPrecoApp;
         this.criarAssinatura = criarAssinatura;
         this.getAplicativos = getAplicativos;
@@ -45,6 +46,7 @@ public class ControllerSis {
         this.getClientes = getClientes;
         this.getClienteById = getClienteById;
         this.getAppById = getAppById;
+        this.checkStatus = checkStatus;
     }
 
     @GetMapping("/servcad/clientes")
@@ -101,7 +103,7 @@ public class ControllerSis {
 
 
     @GetMapping("/assinvalida/{codass}")
-    public Boolean checkAssinaturaStatus(@RequestParam Long codAssinatura) { //não consigo testar, amigo Endrew!!! Tenta aí por favor <33
+    public Boolean checkAssinaturaStatus(@PathVariable("codass") Long codAssinatura) { //não consigo testar, amigo Endrew!!! Tenta aí por favor <33
         return checkStatus.run(codAssinatura);
     }
     

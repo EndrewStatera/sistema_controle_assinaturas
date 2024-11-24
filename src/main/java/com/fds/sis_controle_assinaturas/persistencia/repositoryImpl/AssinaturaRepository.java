@@ -36,6 +36,8 @@ public class AssinaturaRepository implements IAssinaturaRepository {
 
     @Override
     public AssinaturaModel getAssinaturaById(Long id) {
+        Assinatura assinatura = repository.findById(id).orElseThrow();
+        System.out.println("recem pegando" +assinatura);
         return Assinatura.toAssinaturaModel(repository.findById(id).orElseThrow());
     }
 }

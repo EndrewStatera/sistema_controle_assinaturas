@@ -116,6 +116,10 @@ public class ServicoAssinatura {
             return false;
         }
         LocalDate hoje = LocalDate.now();
+        System.out.println("HEEEEEEEEEEEEEY ESTOU AQUI");
+        System.out.println("Assinatura id: " + assinatura.getId());
+        System.out.println(assinatura);
+
         boolean dentroDoPeriodo = 
             (hoje.isEqual(assinatura.getInicioVigencia()) || hoje.isAfter(assinatura.getInicioVigencia())) &&
             (hoje.isEqual(assinatura.getFimVigencia()) || hoje.isBefore(assinatura.getFimVigencia()));
