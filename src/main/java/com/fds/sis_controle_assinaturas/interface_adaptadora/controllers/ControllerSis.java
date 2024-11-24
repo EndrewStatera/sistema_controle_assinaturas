@@ -94,11 +94,11 @@ public class ControllerSis {
     @PostMapping("/registrarpagamento")
     public PagamentoDTO registerPagamento(@RequestBody PagamentoDTO entity) {
         //TODO: process POST request
-        
+
         return null;
     }
 
-    @GetMapping("/assinvalida/:codass")
+    @GetMapping("/assinvalida/codass")
     public Boolean checkAssinaturaStatus(@RequestParam String param) {
         return null;
     }
