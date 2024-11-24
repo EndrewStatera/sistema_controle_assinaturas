@@ -21,5 +21,4 @@ public class GetAssinaturaByStatus {
     public List<AssinaturaDTO> run(StatusAssinatura status){
         return this.service.getAssinaturasByStatus(status).stream().map(AssinaturaDTO::fromAssinaturaModel).toList();
     }
-
 }

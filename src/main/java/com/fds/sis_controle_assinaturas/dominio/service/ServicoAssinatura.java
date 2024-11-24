@@ -1,5 +1,6 @@
 package com.fds.sis_controle_assinaturas.dominio.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -102,4 +103,24 @@ public class ServicoAssinatura {
     public List<AssinaturaModel> getAll(){
         return repository.all();
     }
+
+    /**
+     * Verifica se uma assinatura é válida com base no ID.
+     *
+     * @param id o ID da assinatura a ser verificada
+     * @return `true` se a assinatura é válida, `false` caso contrário
+     */
+    public boolean isAssinaturaValida(Long id) {
+        AssinaturaModel assinatura = repository.getAssinaturaById(id);
+        if (assinatura == null) {
+            return false;
+        }
+        LocalDate hoje = LocalDate.now();
+        boolean dentroDoPeriodo = 
+            (hoje.isEqual(assinatura.getInicioVigencia()) || hoje.isAfter(assinatura.getInicioVigencia())) &&
+            (hoje.isEqual(assinatura.getFimVigencia()) || hoje.isBefore(assinatura.getFimVigencia()));
+
+        return assinatura.isActive() && dentroDoPeriodo;
+    }
+
 }
