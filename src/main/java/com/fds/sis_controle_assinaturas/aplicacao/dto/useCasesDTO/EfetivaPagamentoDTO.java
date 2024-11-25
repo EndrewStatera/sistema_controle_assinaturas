@@ -6,4 +6,5 @@ public class EfetivaPagamentoDTO {
     private Long assinaturaCodigo;
     private Float valorPago;
     private LocalDate dataPagamento;
+    private Long id_promocao;
 }

@@ -47,18 +47,18 @@ public class AssinaturaModel {
         return this.fimVigencia.isAfter(LocalDate.now());
     }
 
-    public LocalDate pagaAssinatura(){
+    public LocalDate pagaAssinatura(int diasAcrescentados){
         if(this.isActive())
-            this.fimVigencia = fimVigencia.plusDays(30);
+            this.fimVigencia = fimVigencia.plusDays(diasAcrescentados);
         else{
-            this.fimVigencia = LocalDate.now().plusDays(30);
+            this.fimVigencia = LocalDate.now().plusDays(diasAcrescentados);
         }
         return this.fimVigencia;
     }
 
     public void activate(){
         this.inicioVigencia = LocalDate.now();
-        this.fimVigencia = LocalDate.now().plusDays(30);
+        this.fimVigencia = LocalDate.now().plusDays(7);
     }
 
     @Override

@@ -30,9 +30,9 @@ public class Pagamento {
     @DateTimeFormat
     private LocalDate dataPagamento;
     @Column(name = "promocao")
-    private String promocao;
+    private Promocao promocao;
 
-    public Pagamento(Assinatura assinatura, Float valorPago, LocalDate dataPagamento, String promocao){
+    public Pagamento(Assinatura assinatura, Float valorPago, LocalDate dataPagamento, Promocao promocao){
         this.assinatura = assinatura;
         this.valorPago = valorPago;
         this.dataPagamento = dataPagamento;
@@ -43,7 +43,7 @@ public class Pagamento {
         return new Pagamento(Assinatura.fromAssinaturaModel(pagamento.getAssinatura()),
                                 pagamento.getValorPago(),
                                 pagamento.getDataPagamento(),
-                                pagamento.getPromocao());
+                                Promocao.fromPromocaoModel(pagamento.getPromocao()));
     }
 
     public static PagamentoModel toPagamentoModel(Pagamento pagamento){
@@ -51,6 +51,6 @@ public class Pagamento {
                                     Assinatura.toAssinaturaModel(pagamento.getAssinatura()),
                                     pagamento.getValorPago(),
                                     pagamento.getDataPagamento(),
-                                    pagamento.getPromocao());
+                                    Promocao.toPromocaoModel(pagamento.getPromocao()));
     }
 }

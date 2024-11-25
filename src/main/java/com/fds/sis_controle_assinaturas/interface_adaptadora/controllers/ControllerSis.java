@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fds.sis_controle_assinaturas.aplicacao.casosDeUso.*;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.useCasesDTO.AtualizaPrecoDTO;
+import com.fds.sis_controle_assinaturas.aplicacao.dto.useCasesDTO.PagamentoAssinaturaDTO;
 import com.fds.sis_controle_assinaturas.dominio.auxiliares.StatusAssinatura;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -109,10 +110,10 @@ public class ControllerSis {
     }
     
     @PostMapping("/registrarpagamento")
-    public PagamentoDTO registerPagamento(@RequestBody PagamentoDTO entity) {
+    public PagamentoAssinaturaDTO registerPagamento(@RequestBody PagamentoDTO entity) {
         //TODO: process POST request
-
-        return null;
+        PagamentoAssinaturaDTO resultado = registerPagamento(entity);
+        return resultado;
     }
 
     @GetMapping("/assinvalida/{codass}")

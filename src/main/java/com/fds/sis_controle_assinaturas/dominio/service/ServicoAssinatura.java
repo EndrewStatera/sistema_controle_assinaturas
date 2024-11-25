@@ -154,4 +154,12 @@ public class ServicoAssinatura {
                 anyMatch(assinatura -> Objects.equals(assinatura.getApp().getCodigo(), app.getCodigo()) &&
                         Objects.equals(assinatura.getCliente().getId(), cliente.getId()));
     }
+
+    public AssinaturaModel getAssinaturaById(Long id){
+        return repository.getAssinaturaById(id);
+    }
+
+    public AssinaturaModel atualizaAssinatura(AssinaturaModel assinaturaModel){
+        return repository.salvaAssinatura(assinaturaModel);
+    }
 }

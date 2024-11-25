@@ -16,12 +16,12 @@ public class PagamentoDTO {
     private Long assinaturaCodigo;
     private Float valorPago;
     private LocalDate dataPagamento;
-    private String promocao;
+    private Long promocao;
 
     // Constructors
 
 
-    public PagamentoDTO(Long assinaturaCodigo, Float valorPago, LocalDate dataPagamento, String promocao) {
+    public PagamentoDTO(Long assinaturaCodigo, Float valorPago, LocalDate dataPagamento, Long promocao) {
         this.assinaturaCodigo = assinaturaCodigo;
         this.valorPago = valorPago;
         this.dataPagamento = dataPagamento;
@@ -40,6 +40,6 @@ public class PagamentoDTO {
     }*/
 
     public static PagamentoDTO fromPagaModel(PagamentoModel pagaModel) {
-        return new PagamentoDTO(pagaModel.getCodigo(), pagaModel.getValorPago(), pagaModel.getDataPagamento(), pagaModel.getPromocao());
+        return new PagamentoDTO(pagaModel.getCodigo(), pagaModel.getValorPago(), pagaModel.getDataPagamento(), pagaModel.getPromocao().getCodigo());
     }
 }
