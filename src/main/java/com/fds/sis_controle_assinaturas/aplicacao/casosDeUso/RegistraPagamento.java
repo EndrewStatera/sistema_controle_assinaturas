@@ -26,11 +26,12 @@ public class RegistraPagamento {
         this.servicoAssinatura = servicoAssinatura;
     }
 
-    public PagamentoAssinaturaDTO run(PagamentoDTO pagamento, AssinaturaDTO assinaturaDTO, Float valorPago){
+    public PagamentoAssinaturaDTO run(PagamentoDTO pagamento){
         System.out.println("Segunda camada");
-        AssinaturaModel assinatura = servicoAssinatura.getAssinaturaById(assinaturaDTO.getId());
+        Float valorPago = pagamento.getValorPago();
+        AssinaturaModel assinatura = servicoAssinatura.getAssinaturaById(pagamento.getAssinaturaCodigo());
         if(assinatura == null)throw new RuntimeException("Assinatura invalida");
-        LocalDate dataVigenciaInicial = assinatura.getFimVigencia();
+        LocalDate dataVigenciaInicial = pagamento.getDataPagamento();
         boolean sucesso = servicoPagamento.efetivaPagamento(assinatura, valorPago, pagamento.getPromocao());
         if(sucesso){
             servicoAssinatura.atualizaAssinatura(assinatura);

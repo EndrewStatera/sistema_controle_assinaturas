@@ -5,9 +5,11 @@ import java.time.LocalDate;
 import com.fds.sis_controle_assinaturas.dominio.model.PagamentoModel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class PagamentoDTO {
@@ -27,6 +29,8 @@ public class PagamentoDTO {
         this.dataPagamento = dataPagamento;
         this.promocao = promocao;
     }
+
+
 
 
 

@@ -26,10 +26,13 @@ public class ServicoPagamento {
         Ainda falta implementar a funcionalidade de estornar o dinheiro. Como seria?
     */
     public boolean efetivaPagamento(AssinaturaModel assinatura, Float valor, Long id){
+        if(id == null){
+            id = 1l;
+        }
         PromocaoModel promocao = promocoes.getPromocaoById(id);
         float calculaTotalPromocao = promocoes.getPromocaoById(id).calcularPromocao(assinatura);
-        PagamentoAssinaturaAdapter adapter = new PagamentoAssinaturaAdapter();
-
+        //PagamentoAssinaturaAdapter adapter = new PagamentoAssinaturaAdapter();
+        
         if(valor != calculaTotalPromocao)
             return false;
         else{

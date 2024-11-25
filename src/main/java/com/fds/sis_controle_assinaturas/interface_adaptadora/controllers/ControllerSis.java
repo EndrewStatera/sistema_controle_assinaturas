@@ -30,6 +30,7 @@ public class ControllerSis {
     CheckAssinaturaByStts checkStatus;
     AssinaturasByCliente assByCliente;
     GetAssinaturaByApp getAssinaturaByApp;
+    RegistraPagamento registraPagamento;
 
     @Autowired
     public ControllerSis(AtualizaPrecoApp atualizaPrecoApp,
@@ -42,7 +43,8 @@ public class ControllerSis {
                          GetAppById getAppById,
                          CheckAssinaturaByStts checkStatus,
                          AssinaturasByCliente assByCliente,
-                         GetAssinaturaByApp getAssinaturaByApp) {
+                         GetAssinaturaByApp getAssinaturaByApp,
+                         RegistraPagamento registraPagamento) {
         this.atualizaPrecoApp = atualizaPrecoApp;
         this.criarAssinatura = criarAssinatura;
         this.getAplicativos = getAplicativos;
@@ -54,6 +56,7 @@ public class ControllerSis {
         this.checkStatus = checkStatus;
         this.assByCliente = assByCliente;
         this.getAssinaturaByApp = getAssinaturaByApp;
+        this.registraPagamento = registraPagamento;
     }
 
     @GetMapping("/servcad/clientes") //feito
@@ -113,7 +116,7 @@ public class ControllerSis {
     public PagamentoAssinaturaDTO registerPagamento(@RequestBody PagamentoDTO entity) {
         //TODO: process POST request
         System.out.println("1 camada");
-        PagamentoAssinaturaDTO resultado = registerPagamento(entity);
+        PagamentoAssinaturaDTO resultado = this.registraPagamento.run(entity);
         return resultado;
     }
 

@@ -4,16 +4,18 @@ import com.fds.sis_controle_assinaturas.dominio.model.PromocaoModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "promocao")
+@NoArgsConstructor
+@Table(name = "PROMOCAO")
 @Entity
 public class Promocao {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="cd_promocao")
     private long codigo;
     @Column(name="dias_vigencia")

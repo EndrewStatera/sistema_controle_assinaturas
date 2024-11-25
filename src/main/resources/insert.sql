@@ -25,3 +25,8 @@ INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vi
 VALUES (4, 4, '2024-10-01', '2024-11-01');
 INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vigencia)
 VALUES (5, 5, '2024-11-22', '2024-12-22');
+
+INSERT INTO PROMOCAO (dias_vigencia, porcentagem_desconto)
+VALUES (0, 0);
+INSERT INTO PROMOCAO (dias_vigencia, porcentagem_desconto)
+VALUES (365, 40);
