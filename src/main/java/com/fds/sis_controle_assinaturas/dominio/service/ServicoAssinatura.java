@@ -64,12 +64,16 @@ public class ServicoAssinatura {
      *
      * @param cliente the `ClienteModel` instance representing the client
      * @return a list of `AssinaturaModel` instances associated with the specified client
-     */
+     
     public List<AssinaturaModel> getAssinaturasByCliente(ClienteModel cliente){
         List<AssinaturaModel> assinaturas = repository.all().stream()
                 .filter(assinatura -> assinatura.getCliente().getId().equals(cliente.getId()))
                 .collect(Collectors.toList());
         return assinaturas;
+    }*/
+
+    public List<AssinaturaModel> assByClientes(long clienteID){
+        return repository.getByCliente(clienteID);
     }
 
     /**

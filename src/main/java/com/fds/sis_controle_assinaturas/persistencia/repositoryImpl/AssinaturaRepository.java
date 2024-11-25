@@ -53,4 +53,9 @@ public class AssinaturaRepository implements IAssinaturaRepository {
         repository.save(assinatura);
         return Assinatura.toAssinaturaModel(assinatura);
     }
+
+    public List<AssinaturaModel> getByCliente(long clienteID){
+        List<Assinatura> assinaturasCliente = repository.findAll();
+        return assinaturasCliente.stream().filter(as -> as.getCliente().getId() == clienteID).map(assinatura -> Assinatura.toAssinaturaModel(assinatura)).toList();
+    }
 }

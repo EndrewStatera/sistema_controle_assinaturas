@@ -27,7 +27,7 @@ public class ControllerSis {
     GetClienteById getClienteById;
     GetAppById getAppById;
     CheckAssinaturaByStts checkStatus;
-
+    AssinaturasByCliente assByCliente;
 
     @Autowired
     public ControllerSis(AtualizaPrecoApp atualizaPrecoApp,
@@ -38,7 +38,8 @@ public class ControllerSis {
                          GetClientes getClientes,
                          GetClienteById getClienteById,
                          GetAppById getAppById,
-                         CheckAssinaturaByStts checkStatus) {
+                         CheckAssinaturaByStts checkStatus,
+                         AssinaturasByCliente assByCliente) {
         this.atualizaPrecoApp = atualizaPrecoApp;
         this.criarAssinatura = criarAssinatura;
         this.getAplicativos = getAplicativos;
@@ -48,39 +49,41 @@ public class ControllerSis {
         this.getClienteById = getClienteById;
         this.getAppById = getAppById;
         this.checkStatus = checkStatus;
+        this.assByCliente = assByCliente;
+
     }
 
-    @GetMapping("/servcad/clientes")
+    @GetMapping("/servcad/clientes") //feito
     public List<ClienteDTO> getClientesCadastrados() {
         return getClientes.run();
     }
 
-    @GetMapping("/servcad/aplicativos")
+    @GetMapping("/servcad/aplicativos") //feito
     public List<AplicativoDTO> getAplicativosCadastrados() {
         
         return getAplicativos.run();
     }
 
-    @GetMapping("/servcad/assinaturas")
+    @GetMapping("/servcad/assinaturas") //feito
     public List<AssinaturaDTO> getAssinaturas() {
         //TODO: process POST request
         
         return getAssinaturas.run();
     }
 
-    @PostMapping("/servcad/assinaturas")
+    @PostMapping("/servcad/assinaturas") //feito 
     public AssinaturaDTO criaAssinatura(@RequestBody CadastAssinaturaDTO assinaturaCadastrada){
         return criarAssinatura.run(assinaturaCadastrada.getCliente(), assinaturaCadastrada.getApp());
     }
     
-    @PutMapping("/servcad/aplicativos/atualizacusto/{id}")
+    @PutMapping("/servcad/aplicativos/atualizacusto/{id}") //feito?
     public AplicativoDTO postMethodName(@PathVariable("id") Long id, @RequestBody AtualizaPrecoDTO entity) {
         //TODO: process POST request
         entity.setId(id);
         return atualizaPrecoApp.run(entity);
     }
     
-    @GetMapping("/servcad/assinaturas/{tipo}")
+    @GetMapping("/servcad/assinaturas/{tipo}") //feito
     public List<AssinaturaDTO> getAssinaturaByType(@PathVariable("tipo") Integer param) {
         return switch (param) {
             case 1 -> getAssinaturaByStatus.run(StatusAssinatura.ATIVA);
@@ -90,9 +93,9 @@ public class ControllerSis {
         };
     }
 
-    @GetMapping("/servcad/asscli/{id}")
-    public ClienteDTO getClienteById(@PathVariable("id") Long id) {
-        return getClienteById.run(id);
+    @GetMapping("/servcad/asscli/{codcli}")
+    public List<String> getAssinaturaByCliente(@PathVariable(value = "codcli") long clienteID){
+        return assByCliente.run(clienteID);
     }
 
     @GetMapping("/servcad/assapp{id}")
@@ -111,5 +114,4 @@ public class ControllerSis {
     public Boolean checkAssinaturaStatus(@PathVariable("codass") Long codAssinatura) {
         return checkStatus.run(codAssinatura);
     }
-    
 }
