@@ -23,10 +23,12 @@ public class Assinatura {
     @Column(name = "id_assinatura")
     private Long id;
     //@Column(name = "id_app")
-    @OneToOne
+    //@OneToOne
+    @ManyToOne
     private Aplicativo app;
     //@Column(name = "id_cliente")
-    @OneToOne
+    //@OneToOne
+    @ManyToOne
     private Cliente cliente;
     @Column(name = "inicio_vigencia")
     //@DateTimeFormat

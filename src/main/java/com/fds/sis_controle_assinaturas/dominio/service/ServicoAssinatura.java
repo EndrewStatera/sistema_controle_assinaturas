@@ -2,6 +2,7 @@ package com.fds.sis_controle_assinaturas.dominio.service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -134,6 +135,10 @@ public class ServicoAssinatura {
     }
 
     public AssinaturaModel registrarAssinatura(ClienteModel cliente, AplicativoModel aplicativo){
+        if(cliente == null || aplicativo == null){
+            return null;
+        }
+        if(contains(cliente, aplicativo))return null;
         return this.repository.criaAssinatura(cliente, aplicativo);
     }
 
@@ -141,4 +146,12 @@ public class ServicoAssinatura {
         return this.repository.getByApp(id);
     }
 
+    public boolean contains(ClienteModel cliente, AplicativoModel app){
+//        List<AssinaturaModel> assinaturas = repository.all().stream().
+//                filter(assinatura -> assinatura.getApp().getCodigo() == app.getCodigo() &&
+//                assinatura.getCliente().getId() == cliente.getId()).toList();
+        return repository.all().stream().
+                anyMatch(assinatura -> Objects.equals(assinatura.getApp().getCodigo(), app.getCodigo()) &&
+                        Objects.equals(assinatura.getCliente().getId(), cliente.getId()));
+    }
 }
