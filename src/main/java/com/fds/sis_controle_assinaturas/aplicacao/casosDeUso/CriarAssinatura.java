@@ -7,7 +7,10 @@ import com.fds.sis_controle_assinaturas.dominio.model.ClienteModel;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAplicativoRepository;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IAssinaturaRepository;
 import com.fds.sis_controle_assinaturas.dominio.persistence.IClienteRepository;
+import com.fds.sis_controle_assinaturas.dominio.service.ServicoAplicativo;
 import com.fds.sis_controle_assinaturas.dominio.service.ServicoAssinatura;
+import com.fds.sis_controle_assinaturas.dominio.service.ServicoCliente;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +23,8 @@ public class CriarAssinatura{
     private IAplicativoRepository aplicativosRepository;
     private IClienteRepository clienteRepository;
     private ServicoAssinatura servicoAssinatura;
+    private ServicoCliente servicoCliente;
+    private ServicoAplicativo servicoAplicativo;
 
     @Autowired
     public CriarAssinatura(ServicoAssinatura servicoAssinatura,
@@ -30,6 +35,8 @@ public class CriarAssinatura{
         this.clienteRepository = clienteRepository;
         this.aplicativosRepository = app;
         this.servicoAssinatura = servicoAssinatura;
+        this.servicoCliente = servicoCliente;
+        this.servicoAplicativo = servicoAplicativo;
     }
 
     public AssinaturaDTO run(AssinaturaDTO assinatura){
@@ -42,5 +49,10 @@ public class CriarAssinatura{
         return AssinaturaDTO.fromAssinaturaModel(servicoAssinatura.criaAssinatura(assinatura));
     }
 
-
+    public String run(long cliente, long aplicativo) {
+        var clienteModel = servicoCliente.getClienteById(cliente);
+        var aplicativoModel = servicoAplicativo.getAppById(aplicativo);
+        var assinatura = servicoAssinatura.criaAssinatura(clienteModel, aplicativoModel);
+        return AssinaturaDTO.fromModel(assinatura).toString();
+    }
 }

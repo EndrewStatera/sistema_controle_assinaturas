@@ -66,6 +66,11 @@ public class ControllerSis {
         
         return getAssinaturas.run();
     }
+
+    @PostMapping("/servcad/assinaturas")
+    public AssinaturaDTO criaAssinatura(@RequestBody AssinaturaDTO assinaturaNova){
+        return criarAssinatura.run(assinaturaNova);
+    }
     
     @PutMapping("/servcad/aplicativos/atualizacusto/{id}")
     public AplicativoDTO postMethodName(@PathVariable("id") Long id, @RequestBody AtualizaPrecoDTO entity) {
@@ -101,9 +106,8 @@ public class ControllerSis {
         return null;
     }
 
-
     @GetMapping("/assinvalida/{codass}")
-    public Boolean checkAssinaturaStatus(@PathVariable("codass") Long codAssinatura) { //não consigo testar, amigo Endrew!!! Tenta aí por favor <33
+    public Boolean checkAssinaturaStatus(@PathVariable("codass") Long codAssinatura) {
         return checkStatus.run(codAssinatura);
     }
     

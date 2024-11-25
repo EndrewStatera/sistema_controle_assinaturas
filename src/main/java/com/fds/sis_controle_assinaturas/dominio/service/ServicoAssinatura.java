@@ -127,4 +127,8 @@ public class ServicoAssinatura {
         return assinatura.isActive() && dentroDoPeriodo;
     }
 
+    public AssinaturaModel registrarAssinatura(ClienteModel cliente, AplicativoModel aplicativo){
+        return repository.criaAssinatura(cliente, aplicativo);
+    }
+
 }
