@@ -16,6 +16,7 @@ public class AtualizaPrecoApp {
     }
 
     public AplicativoDTO run(AtualizaPrecoDTO dto){
+
         return AplicativoDTO.fromAppModel(this.service.atualizaCusto(dto.getId(), dto.getNovoPreco()));
     }
 }

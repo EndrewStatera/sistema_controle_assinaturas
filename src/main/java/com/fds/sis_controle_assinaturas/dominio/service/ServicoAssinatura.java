@@ -73,7 +73,9 @@ public class ServicoAssinatura {
     }*/
 
     public List<AssinaturaModel> assByClientes(long clienteID){
-        return repository.getByCliente(clienteID);
+        //return repository.getByCliente(clienteID);
+        List<AssinaturaModel> assinaturas = repository.getByCliente(clienteID);
+        return assinaturas;
     }
 
     /**
@@ -133,6 +135,10 @@ public class ServicoAssinatura {
 
     public AssinaturaModel registrarAssinatura(ClienteModel cliente, AplicativoModel aplicativo){
         return this.repository.criaAssinatura(cliente, aplicativo);
+    }
+
+    public List<AssinaturaModel> getAssinaturaByApp(Long id){
+        return this.repository.getByApp(id);
     }
 
 }

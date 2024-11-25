@@ -13,4 +13,5 @@ public interface IAssinaturaRepository {
     public  AssinaturaModel getAssinaturaById(Long id);
     public AssinaturaModel criaAssinatura(ClienteModel cliente, AplicativoModel aplicativo);
     public List<AssinaturaModel> getByCliente(long clienteID);
+    public List<AssinaturaModel> getByApp(long appID);
 }

@@ -17,10 +17,11 @@ public class AssinaturasByCliente {
         this.service = service;
     }
 
-    public List<String> run(long clienteID){
+    public List<AssinaturaDTO> run(long clienteID){
         List<AssinaturaDTO> l = service.assByClientes(clienteID).stream().map(assinatura -> AssinaturaDTO.fromAssinaturaModel(assinatura)).toList();
-        return l.stream()
+        /*return l.stream()
         .map(AssinaturaDTO::toString)
-        .toList();
+        .toList();*/
+        return l;
     }
 }

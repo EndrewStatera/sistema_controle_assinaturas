@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface IAssinaturaJPA extends CrudRepository<Assinatura, Long> {
     public List<Assinatura> findAll();
+
 }

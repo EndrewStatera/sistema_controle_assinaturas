@@ -20,6 +20,6 @@ public class AplicativoDTO{
     }
 
     public static AplicativoDTO fromAppModel(AplicativoModel appModel){
-        return new AplicativoDTO(appModel.getNomeAplicativo(), appModel.getCustoMensal());
+        return new AplicativoDTO(appModel.getCodigo(), appModel.getNomeAplicativo(), appModel.getCustoMensal());
     }
 }

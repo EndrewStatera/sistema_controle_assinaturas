@@ -56,6 +56,14 @@ public class AssinaturaRepository implements IAssinaturaRepository {
 
     public List<AssinaturaModel> getByCliente(long clienteID){
         List<Assinatura> assinaturasCliente = repository.findAll();
+        for(Assinatura assinatura: assinaturasCliente){
+            System.out.println(assinatura);
+        }
         return assinaturasCliente.stream().filter(as -> as.getCliente().getId() == clienteID).map(assinatura -> Assinatura.toAssinaturaModel(assinatura)).toList();
+    }
+
+    @Override
+    public List<AssinaturaModel> getByApp(long id) {
+        return repository.findAll().stream().filter(assinatura -> assinatura.getApp().getCodigo() == id).map(Assinatura::toAssinaturaModel).toList();
     }
 }

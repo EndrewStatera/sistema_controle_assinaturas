@@ -28,6 +28,7 @@ public class ControllerSis {
     GetAppById getAppById;
     CheckAssinaturaByStts checkStatus;
     AssinaturasByCliente assByCliente;
+    GetAssinaturaByApp getAssinaturaByApp;
 
     @Autowired
     public ControllerSis(AtualizaPrecoApp atualizaPrecoApp,
@@ -39,7 +40,8 @@ public class ControllerSis {
                          GetClienteById getClienteById,
                          GetAppById getAppById,
                          CheckAssinaturaByStts checkStatus,
-                         AssinaturasByCliente assByCliente) {
+                         AssinaturasByCliente assByCliente,
+                         GetAssinaturaByApp getAssinaturaByApp) {
         this.atualizaPrecoApp = atualizaPrecoApp;
         this.criarAssinatura = criarAssinatura;
         this.getAplicativos = getAplicativos;
@@ -50,7 +52,7 @@ public class ControllerSis {
         this.getAppById = getAppById;
         this.checkStatus = checkStatus;
         this.assByCliente = assByCliente;
-
+        this.getAssinaturaByApp = getAssinaturaByApp;
     }
 
     @GetMapping("/servcad/clientes") //feito
@@ -94,13 +96,16 @@ public class ControllerSis {
     }
 
     @GetMapping("/servcad/asscli/{codcli}")
-    public List<String> getAssinaturaByCliente(@PathVariable(value = "codcli") long clienteID){
+    public List<AssinaturaDTO> getAssinaturaByCliente(@PathVariable(value = "codcli") long clienteID){
         return assByCliente.run(clienteID);
     }
 
-    @GetMapping("/servcad/assapp{id}")
+    @GetMapping("/servcad/app/{id}")
     public AplicativoDTO getAppById(@PathVariable("id") Long id) {
         return this.getAppById.run(id);
+    }@GetMapping("/servcad/assapp/{id}")
+    public List<AssinaturaDTO> getAssinaturaByApp(@PathVariable("id") Long id) {
+        return this.getAssinaturaByApp.run(id);
     }
     
     @PostMapping("/registrarpagamento")

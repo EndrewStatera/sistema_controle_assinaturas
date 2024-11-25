@@ -14,8 +14,10 @@ public class ServicoAplicativo {
     }
     public AplicativoModel atualizaCusto(Long id, Float novoCusto){
         AplicativoModel app = apps.getAplicativoById(id);
-        if(!(novoCusto < 0))
+        if(!(novoCusto < 0)) {
             app.setCustoMensal(novoCusto);
+            app = apps.updateAppPrice(id, novoCusto);
+        }
         return app;
     }
 
