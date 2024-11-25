@@ -15,8 +15,6 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "ASSINATURAS")
 @Entity
 public class Assinatura {
@@ -37,6 +35,22 @@ public class Assinatura {
     //@DateTimeFormat
     private  LocalDate fimVigencia;
 
+    protected Assinatura() {}
+
+    public Assinatura(Aplicativo app, Cliente cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
+        this.app = app;
+        this.cliente = cliente;
+        this.inicioVigencia = inicioVigencia;
+        this.fimVigencia = fimVigencia;
+    }
+
+    public Assinatura(Long id, Aplicativo app, Cliente cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
+        this.id = id;
+        this.app = app;
+        this.cliente = cliente;
+        this.inicioVigencia = inicioVigencia;
+        this.fimVigencia = fimVigencia;
+    }
 
     public void setFimVigencia(LocalDate data){
         this.fimVigencia = data;

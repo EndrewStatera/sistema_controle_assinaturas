@@ -15,8 +15,8 @@ INSERT INTO APPS (name, price) VALUES ('Amazon Prime', 25.99);
 INSERT INTO APPS (name, price) VALUES ('Disney+', 29.99);
 INSERT INTO APPS (name, price) VALUES ('HBO Max', 34.99);
 
-INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vigencia)
-VALUES (1, 1, '2024-11-01', '2024-12-01');
+--INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vigencia)
+--VALUES (1, 1, '2024-11-01', '2024-12-01');
 INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vigencia)
 VALUES (2, 3, '2024-10-15', '2024-11-15');
 INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vigencia)
@@ -25,4 +25,3 @@ INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vi
 VALUES (4, 4, '2024-10-01', '2024-11-01');
 INSERT INTO ASSINATURAS (app_cd_app, cliente_id_cliente, inicio_vigencia, fim_vigencia)
 VALUES (5, 5, '2024-11-22', '2024-12-22');
-

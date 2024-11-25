@@ -48,8 +48,8 @@ public class AssinaturaRepository implements IAssinaturaRepository {
         Cliente c = Cliente.fromClienteModel(cliente);
         Aplicativo a = Aplicativo.fromAplicativoModel(aplicativo);
         LocalDate dataInicio = LocalDate.now();
-        LocalDate dataFim = dataInicio.plusDays(30);
-        Assinatura assinatura = new Assinatura(null, a, c, dataInicio, dataFim.plusDays(30));
+        LocalDate dataFim = dataInicio.plusDays(7);
+        Assinatura assinatura = new Assinatura(a, c, dataInicio, dataFim.plusDays(30));
         repository.save(assinatura);
         return Assinatura.toAssinaturaModel(assinatura);
     }

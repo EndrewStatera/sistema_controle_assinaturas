@@ -128,7 +128,7 @@ public class ServicoAssinatura {
     }
 
     public AssinaturaModel registrarAssinatura(ClienteModel cliente, AplicativoModel aplicativo){
-        return repository.criaAssinatura(cliente, aplicativo);
+        return this.repository.criaAssinatura(cliente, aplicativo);
     }
 
 }

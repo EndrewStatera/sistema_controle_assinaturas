@@ -19,27 +19,17 @@ import java.time.LocalDate;
 @Component
 
 public class CriarAssinatura{
-    private IAssinaturaRepository assinaturaRepository;
-    private IAplicativoRepository aplicativosRepository;
-    private IClienteRepository clienteRepository;
     private ServicoAssinatura servicoAssinatura;
     private ServicoCliente servicoCliente;
     private ServicoAplicativo servicoAplicativo;
 
-    @Autowired
-    public CriarAssinatura(ServicoAssinatura servicoAssinatura,
-                           IAssinaturaRepository assinaturaRepository,
-                           IClienteRepository clienteRepository,
-                           IAplicativoRepository app){
-        this.assinaturaRepository = assinaturaRepository;
-        this.clienteRepository = clienteRepository;
-        this.aplicativosRepository = app;
+    public CriarAssinatura(ServicoAssinatura servicoAssinatura, ServicoCliente servicoCliente, ServicoAplicativo servicoAplicativo) {
         this.servicoAssinatura = servicoAssinatura;
         this.servicoCliente = servicoCliente;
         this.servicoAplicativo = servicoAplicativo;
     }
 
-    public AssinaturaDTO run(AssinaturaDTO assinatura){
+    /*public AssinaturaDTO run(AssinaturaDTO assinatura){
         AssinaturaModel assinaturaModel = new AssinaturaModel(
                 aplicativosRepository.getAplicativoById(assinatura.getApp().getCodigo()),
                 clienteRepository.getClienteById(assinatura.getCliente().getId()),
@@ -47,12 +37,12 @@ public class CriarAssinatura{
                 LocalDate.now().plusDays(30));
 
         return AssinaturaDTO.fromAssinaturaModel(servicoAssinatura.criaAssinatura(assinatura));
-    }
+    }*/
 
-    public String run(long cliente, long aplicativo) {
+    public AssinaturaDTO run(long cliente, long aplicativo) {
         var clienteModel = servicoCliente.getClienteById(cliente);
         var aplicativoModel = servicoAplicativo.getAppById(aplicativo);
-        var assinatura = servicoAssinatura.criaAssinatura(clienteModel, aplicativoModel);
-        return AssinaturaDTO.fromModel(assinatura).toString();
+        var assinatura = servicoAssinatura.registrarAssinatura(clienteModel, aplicativoModel);
+        return AssinaturaDTO.fromAssinaturaModel(assinatura);
     }
 }

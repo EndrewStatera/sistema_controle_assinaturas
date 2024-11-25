@@ -21,7 +21,7 @@ public class ClienteRepository implements IClienteRepository {
 
     @Override
     public ClienteModel getClienteById(Long id) {
-        return Cliente.toClienteModel( repository.findById(id).orElseThrow());
+        return Cliente.toClienteModel(repository.findById(id).orElseThrow());
     }
 
     @Override

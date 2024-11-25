@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AplicativoDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.AssinaturaDTO;
+import com.fds.sis_controle_assinaturas.aplicacao.dto.CadastAssinaturaDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.PagamentoDTO;
 import com.fds.sis_controle_assinaturas.aplicacao.dto.ClienteDTO;
 
@@ -68,8 +69,8 @@ public class ControllerSis {
     }
 
     @PostMapping("/servcad/assinaturas")
-    public AssinaturaDTO criaAssinatura(@RequestBody AssinaturaDTO assinaturaNova){
-        return criarAssinatura.run(assinaturaNova);
+    public AssinaturaDTO criaAssinatura(@RequestBody CadastAssinaturaDTO assinaturaCadastrada){
+        return criarAssinatura.run(assinaturaCadastrada.getCliente(), assinaturaCadastrada.getApp());
     }
     
     @PutMapping("/servcad/aplicativos/atualizacusto/{id}")
