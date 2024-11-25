@@ -112,6 +112,7 @@ public class ControllerSis {
     @PostMapping("/registrarpagamento")
     public PagamentoAssinaturaDTO registerPagamento(@RequestBody PagamentoDTO entity) {
         //TODO: process POST request
+        System.out.println("1 camada");
         PagamentoAssinaturaDTO resultado = registerPagamento(entity);
         return resultado;
     }

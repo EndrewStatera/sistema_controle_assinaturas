@@ -156,6 +156,7 @@ public class ServicoAssinatura {
     }
 
     public AssinaturaModel getAssinaturaById(Long id){
+        System.out.println("getAssinaturaById");
         return repository.getAssinaturaById(id);
     }
 

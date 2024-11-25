@@ -30,6 +30,7 @@ public class PagamentoDTO {
 
 
 
+
     // Overloaded constructor to create a DTO from a PagamentoModel
     /*public PagamentoDTO(PagamentoModel model) {
         this.codigo = model.getCodigo();

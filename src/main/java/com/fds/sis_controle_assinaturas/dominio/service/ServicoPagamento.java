@@ -29,6 +29,7 @@ public class ServicoPagamento {
         PromocaoModel promocao = promocoes.getPromocaoById(id);
         float calculaTotalPromocao = promocoes.getPromocaoById(id).calcularPromocao(assinatura);
         PagamentoAssinaturaAdapter adapter = new PagamentoAssinaturaAdapter();
+
         if(valor != calculaTotalPromocao)
             return false;
         else{

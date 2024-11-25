@@ -29,7 +29,7 @@ public class Pagamento {
     @Column(name = "data_pagamento")
     @DateTimeFormat
     private LocalDate dataPagamento;
-    @Column(name = "promocao")
+    @ManyToOne
     private Promocao promocao;
 
     public Pagamento(Assinatura assinatura, Float valorPago, LocalDate dataPagamento, Promocao promocao){
