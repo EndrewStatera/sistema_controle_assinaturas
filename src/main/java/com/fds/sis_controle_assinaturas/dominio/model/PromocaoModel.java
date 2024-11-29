@@ -19,7 +19,7 @@ public class PromocaoModel implements IPromocao {
     @Override
     public float calcularPromocao(AssinaturaModel assinaturaModel) {
         float custo = assinaturaModel.getApp().getCustoMensal();
-        return custo * (this.desconto/100f);
+        return custo - (custo * (this.desconto/100f));
     }
 
     @Override
