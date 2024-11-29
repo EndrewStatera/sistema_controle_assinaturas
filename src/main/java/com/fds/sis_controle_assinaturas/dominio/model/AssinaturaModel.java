@@ -17,6 +17,7 @@ import java.util.Date;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class AssinaturaModel {
 
     private Long id;
@@ -31,6 +32,13 @@ public class AssinaturaModel {
         this.cliente = cliente;
     }
 
+    public AssinaturaModel(AplicativoModel app, ClienteModel cliente, LocalDate inicioVigencia, LocalDate fimVigencia){
+        this.id = id;
+        this.app = app;
+        this.cliente = cliente;
+    }
+
+
     public void setFimVigencia(LocalDate data){
         this.fimVigencia = data;
     }
@@ -39,14 +47,26 @@ public class AssinaturaModel {
         return this.fimVigencia.isAfter(LocalDate.now());
     }
 
-    public LocalDate pagaAssinatura(){
+    public LocalDate pagaAssinatura(int diasAcrescentados){
         if(this.isActive())
-            this.fimVigencia = fimVigencia.plusDays(30);
+            this.fimVigencia = fimVigencia.plusDays(diasAcrescentados);
         else{
-            this.fimVigencia = LocalDate.now().plusDays(30);
+            this.fimVigencia = LocalDate.now().plusDays(diasAcrescentados);
         }
         return this.fimVigencia;
     }
 
+    public void activate(){
+        this.inicioVigencia = LocalDate.now();
+        this.fimVigencia = LocalDate.now().plusDays(7);
+    }
+
+    @Override
+    public String toString(){
+        return "id " + this.id + "\n" +
+                "app_id: " + this.app.getCodigo() +
+                "data_inicio: " + this.getInicioVigencia() +
+                "data_fim: " + this.getInicioVigencia();
+    }
 
 }
